@@ -1,8 +1,11 @@
 <?php
   
+  // This is one line comment
+  $class = " IS218";
+  echo 'Hello World' . $class;
 
-  echo 'Hello World';
-
-
+/*
+ This is block comment
+*/
 ?>
 
