@@ -51,12 +51,13 @@ class filehandling
 	  $record = $records[$_GET['record']];
 	  // Make the table
 	  	echo "<table border='1'>";
-			
       	foreach($record as $key => $value) 
     	{
-			echo "<tr>";
-			echo "<td> $key:  $value</td>";
+		echo "<tr>";
+			
+			echo "<th> $key </th> <td> $value </td>";
 			echo "</tr>";
+
 
 			//echo '<td> $key . ': ' . $value .  </td>';
 			
