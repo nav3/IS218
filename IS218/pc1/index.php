@@ -10,6 +10,7 @@ class filehandling
 	// defining variables
 	public $file_csv;
 	public $column_headings;
+	public $college_num;
 
 	public function readfile_csv($file_csv, $column_headings)
 	{
@@ -33,6 +34,30 @@ class filehandling
 
     		fclose($handle);
 	  }
+	  
+	  if(empty($_GET)) {
+	  	foreach($records as $record) {
+				  $i++;
+				$college_num = $i - 1;
+				 echo '<a href=' . '"http://web.njit.edu/~nav3/IS218/pc1/index.php?record=' . $college_num . '"' . '>College ' . $i . ' </a>';
+				echo '</p>';
+					
+			}
+		}	
+	  
+	  $record = $records[$_GET['record']];
+      	foreach($record as $key => $value) 
+    	{
+      		echo $key . ': ' . $value .  "</br> \n";
+		}
+			
+	//foreach($car_order as $key => $value) {
+		//echo $key . ': ' . $value . "<br>\n";
+		//print_r($car_orders);
+		//print_r($_GET);
+	//}
+	
+	  /* loop to print out the records
 		
 	foreach($records as $record) 
 	{
@@ -42,8 +67,12 @@ class filehandling
     	}
     	echo '<hr>';
   	}
+	*/
 	
+	// close of the function 
 	}
+	
+// close of class
 }
 
 	$newfile = new filehandling();
