@@ -12,6 +12,7 @@ class filehandling
 	public $column_headings;
 	public $college_name;
 	
+	// Reading csv file
 	public function readfile_csv($file_csv, $column_headings)
 	{
 
@@ -21,33 +22,34 @@ class filehandling
 		{
     		while (($row = fgetcsv($handle, 1000, ",")) !== FALSE) 
     		{
-     			if($column_headings == TRUE) 
-     			{
+     			if($column_headings == TRUE) {
        				$column_heading = $row;
        				$column_headings = FALSE;
      			} else {
        				$record = array_combine($column_heading, $row);
        				$records[] = $record;
-     				   }
+     			}
 
     		}
 
     		fclose($handle);
 	  }
 	  
+	  
 	  if(empty($_GET)) {
-	  	foreach($records as $record) {
-				  $i++;
-				$college_num = $i - 1;			
-			
-			
-				 echo '<a href=' . '"http://web.njit.edu/~nav3/IS218/pc1/index.php?record=' . $college_num . '"' . '>College ' . $i . ' </a>';
-				echo '</p>';
-					
-			}
-		}	
+		foreach($records as $record) {
+		  $i++;
+			$college_num = $i - 1;			
+		
+		// Making links to the file
+			 echo '<a href=' . '"http://web.njit.edu/~nav3/IS218/pc1/index.php?record=' . $college_num . '"' . '>College ' . $i . ' </a>';
+			echo '</p>';
+						
+		}
+	}	
 	  
 	  $record = $records[$_GET['record']];
+	  // Make the table
 	  	echo "<table border='1'>";
 			
       	foreach($record as $key => $value) 
@@ -59,12 +61,9 @@ class filehandling
 			//echo '<td> $key . ': ' . $value .  </td>';
 			
 		}
-			
-			
 		echo "</table>";
-		
 }
-
+	// Creating new obj, and reading the file
 	$newfile = new filehandling();
 	$newfile->readfile_csv("hd2013.csv",TRUE);
 
