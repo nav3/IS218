@@ -10,8 +10,8 @@ class filehandling
 	// defining variables
 	public $file_csv;
 	public $column_headings;
-	public $college_num;
-
+	public $college_name;
+	
 	public function readfile_csv($file_csv, $column_headings)
 	{
 
@@ -38,7 +38,9 @@ class filehandling
 	  if(empty($_GET)) {
 	  	foreach($records as $record) {
 				  $i++;
-				$college_num = $i - 1;
+				$college_num = $i - 1;			
+			
+			
 				 echo '<a href=' . '"http://web.njit.edu/~nav3/IS218/pc1/index.php?record=' . $college_num . '"' . '>College ' . $i . ' </a>';
 				echo '</p>';
 					
@@ -46,11 +48,78 @@ class filehandling
 		}	
 	  
 	  $record = $records[$_GET['record']];
+	  	echo "<table border='1'>";
+			
       	foreach($record as $key => $value) 
     	{
-      		echo $key . ': ' . $value .  "</br> \n";
+			echo "<tr>";
+			echo "<td> $key:  $value</td>";
+			echo "</tr>";
+
+			//echo '<td> $key . ': ' . $value .  </td>';
+			
 		}
 			
+			
+		echo "</table>";
+		
+		
+
+/*
+  public function displayTable($rows, $cols)
+  {
+   for($c = 0; $c < $cols; $c++)
+   {
+    echo '<tr>';
+    for($r = 0; $r < $rows; $r++)
+    {
+	 echo '<td>' 
+
+	 '</td>';
+	// echo "<td> <input type='text' name='tbl_cells[]' /> </td>";
+    } //ends rows loop
+    echo '</tr>';
+   } //ends columns loop
+  } //ends function display
+	
+				// Call the foobar() function with 2 arguments
+//call_user_func_array("display", array(record));
+$obj = new Display();
+//$obj -> display(3,3);
+	
+	/*
+	public function output() {
+	
+				
+		$output = '<table border="1" cellspacing="1" cellpadding="3">';
+
+            // Table head.
+            $output .= '<thead><tr><th>&nbsp;</th>';
+            foreach ($this->_rows as $row) {
+                foreach ($row as $key => $col) {
+                    $output .= '<th>' . $key .  '</th>';
+                }
+                break;
+            }
+            $output .= '</tr></thead>';
+
+            // Table body.
+            $output .= '<tbody>';
+            foreach ($this->_rows as $i => $row) {
+                $output .= '<tr>';
+                $output .= '<th>' . $i . '</th>';
+                foreach ($row as $col) {
+                     $output .= '<td>' . $col .  '</td>';
+                }
+                $output .= '</tr>';
+            }
+            $output .= '</tbody>';
+
+            // Close table.
+            $output .= '</table>';
+	
+	}
+*/
 	//foreach($car_order as $key => $value) {
 		//echo $key . ': ' . $value . "<br>\n";
 		//print_r($car_orders);
