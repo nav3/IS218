@@ -20,10 +20,8 @@ class filehandling
 	  //	variable $file_csv is holding spot for filehandling to be opened
 		if (($handle = fopen($file_csv, "r")) !== FALSE) 
 		{
-    		while (($row = fgetcsv($handle, 1000, ",")) !== FALSE) 
-    		{
-     			if($column_headings == TRUE) 
-     			{
+    		while (($row = fgetcsv($handle, 1000, ",")) !== FALSE) {
+     			if($column_headings == TRUE) {
        				$column_heading = $row;
        				$column_headings = FALSE;
      			} else {
@@ -50,12 +48,11 @@ class filehandling
 	  
 	  $record = $records[$_GET['record']];
 	  // Make the table
-	  	echo "<table border='1'>";
-      	foreach($record as $key => $value) 
-    	{
+	  	echo "<table>";
+      	foreach($record as $key => $value) {
 		echo "<tr>";
 			
-			echo "<th> $key </th> <td> $value </td>";
+			echo "<th> $key </th> <td> &nbsp;&nbsp;&nbsp;&nbsp;$value </td>";
 			echo "</tr>";
 
 
@@ -63,7 +60,7 @@ class filehandling
 			
 		}
 			
-			
+		// close table
 		echo "</table>";
 	
 	// close of the function 
