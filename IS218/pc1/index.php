@@ -33,29 +33,37 @@ class filehandling
 
     		fclose($handle);
 	  }
-	  
+	 
+	}
+	// Creating new obj, and reading the file
+	$newfile = new filehandling();
+
+
+	//$newfile2 = new filehandling();
+	
+	$newfile->readfile_csv("hd2013.csv",TRUE);
+	//$newfile2->readfile_csv("hd2013_1.csv",TRUE);
+}
+
+/*
+ class MyOtherClass extends filehandling{
 	  // Make links to the records
-	  if(empty($_GET)) {
-		$i = 0;
-	  	foreach($records as $record) {
-				  $i++;
-				    $cname = $record['INSTNM'];
-					echo $cname;
-				  $college_num = $i - 1;	
-				
-				  //echo $record['INSTNM'];
-				
-			//	$college_num = $varTitle;
+	    public function newMethod() {
+     if (empty($_GET)){
 			
-			// Making links to the file
-				 echo '<a href=' . '"http://web.njit.edu/~nav3/IS218/pc1/index.php?record=' . $college_num . '"' . '$cname' . $i . ' </a>';
+			$i = -1;
+
+			foreach($records as $record){
+				$i++;
+				//$University_name= $i -1;
+
+			
+				echo '<a href = '.' "http://web.njit.edu/~nav3/IS218/pc1/index.php?record=' . $i . '"'. '>'.$record['INSTNM']. '</a>';
+				
 				echo '</p>';
-					
-			}
-			
-		}	
-	  
-	  // Print out the record inside the link
+				}
+		}
+   // Print out the record inside the link
 	  $record = $records[$_GET['record']];
 	  // Make the table
 	  	echo "<table border=1>";
@@ -78,14 +86,23 @@ class filehandling
 		echo "</table>";
 	
 	// close of the function 
-	}
-	
-}
-// Creating new obj, and reading the file
-	$newfile = new filehandling();
-	//$newfile2 = new filehandling();
+  
+  
+  }
+  
+  	//$newfile2 = new filehandling();
 	
 	$newfile->readfile_csv("hd2013.csv",TRUE);
 	//$newfile2->readfile_csv("hd2013_1.csv",TRUE);
+	
+  	// Create a new object
+$newobj = new MyOtherClass;
+	
+	// Output the object as a string
+echo $newobj->newMethod();
+  	
+	
+ }
+ */
 
 ?>
