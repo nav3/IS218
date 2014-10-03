@@ -9,10 +9,6 @@
 		
 		public static function openFile($file){
 			$file_csv = fopen($file, "r");
-			//$file_csv2 = fopen($file2, "r");
-			// $file_csv = array_replace_recursive($file_csv1,$file_csv2);
-			//$file_csv = 
-			//$file_csv = array_replace($file_csv1[],$file_csv2);
 			return $file_csv ;
 		}
 		
@@ -62,22 +58,18 @@
 		// Construct the table 
 			public function __construct($records){
 
-					$i = -1;
-					if(empty($_GET)){
-						foreach($records as $record){
-							$i++;
-							echo '<a href="?record=' .$i. '">' . $record['INSTNM'] . '</a>';
-							echo'</p>';
-						}
-					}
+			$i = -1;
+			if(empty($_GET)){
+				foreach($records as $record){
+					$i++;
+					echo '<a href="?record=' .$i. '">' . $record['INSTNM'] . '</a>';
+					echo'</p>';
+				}
+			}
 			
 			html_Link_table::printTable($records, 'record');
 		}
 	}
-
-		
-	
-	
 	
 $csv = 'hd2013.csv';
 $file = File_handling::openFile($csv);
