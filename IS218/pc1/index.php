@@ -1,108 +1,90 @@
 <?php
+
 /*
-	Nikhil Virparia
+ Nikhil Virparia
 	IS218
-	Assignment 1
+	Challenge 1
 */
-
-class filehandling 
-{
-	// defining variables
-	public $file_csv;
-	public $column_headings;
-	
-	// Reading csv file
-	public function readfile_csv($file_csv, $column_headings)
-	{
-
-	  ini_set('auto_detect_line_endings',TRUE);
-	  //	variable $file_csv is holding spot for filehandling to be opened
-		if (($handle = fopen($file_csv, "r")) !== FALSE) 
-		{
-    		while (($row = fgetcsv($handle, 1000, ",")) !== FALSE) {
-     			if($column_headings == TRUE) {
-       				$column_heading = $row;
-       				$column_headings = FALSE;
-     			} else {
-       				$record = array_combine($column_heading, $row);
-       				$records[] = $record;
-     				   }
-					  // foreach 
-
-    		}
-
-    		fclose($handle);
-	  }
-	 
-	}
-	// Creating new obj, and reading the file
-	$newfile = new filehandling();
-
-
-	//$newfile2 = new filehandling();
-	
-	$newfile->readfile_csv("hd2013.csv",TRUE);
-	//$newfile2->readfile_csv("hd2013_1.csv",TRUE);
-}
-
-/*
- class MyOtherClass extends filehandling{
-	  // Make links to the records
-	    public function newMethod() {
-     if (empty($_GET)){
-			
-			$i = -1;
-
-			foreach($records as $record){
-				$i++;
-				//$University_name= $i -1;
-
-			
-				echo '<a href = '.' "http://web.njit.edu/~nav3/IS218/pc1/index.php?record=' . $i . '"'. '>'.$record['INSTNM']. '</a>';
-				
-				echo '</p>';
-				}
-		}
-   // Print out the record inside the link
-	  $record = $records[$_GET['record']];
-	  // Make the table
-	  	echo "<table border=1>";
-      	foreach($record as $key => $value) {
-		echo "<tr>";
-			
-		echo "<th> $key </th> <td> &nbsp;&nbsp;&nbsp;$value </td>";
-			echo "</tr>";
-
-
-			//echo "<td> $key:</td><td>&nbsp;&nbsp;&nbsp;$value </td>";
-		//	echo "</tr>";
+		class File_handling {
+		
+		public static function openFile($file){
+			$file_csv = fopen($file, "r");
+			//$file_csv2 = fopen($file2, "r");
+			// $file_csv = array_replace_recursive($file_csv1,$file_csv2);
+			//$file_csv = 
+			//$file_csv = array_replace($file_csv1[],$file_csv2);
+			return $file_csv ;
 		}
 		
-			//echo '<td> $key . ': ' . $value .  </td>';
-			
+		public static function closeFile($file_csv){
+			fclose($file_csv);
+		}
+		
+	}
 
+	class readcsv extends File_handling{
+		
+		public static $file_csv;
+		public static $colmn_headings;
+		
+		public function readfile_csv($file_csv, $colmn_headings){
 			
-		// close table
-		echo "</table>";
+			while(($row = fgetcsv($file_csv, ",")) !== FALSE){
+					if($colmn_headings){
+						$column_heading = $row;
+						$colmn_headings = FALSE;
+					}
+					else{
+						$record = array_combine($column_heading, $row);
+						$records[] = $record;
+					}
+				}
+				return $records;
+		}
+		
+	}
+
+// Print table from csv file
+	class html_Link_table{
+		
+		public static function printTable($records,$url_var){
+			if(isset($_GET[$url_var])){
+				echo '<table border="1">';
+				foreach($records[$_GET[$url_var]] as $key => $value){
+					echo "<tr>";
+					echo "<th> $key </th> <td> &nbsp;&nbsp;&nbsp;$value </td>";
+					echo "</tr>";
+				}
+					echo '</table>';
+			}
+		}
+		
+		// Construct the table 
+			public function __construct($records){
+
+					$i = -1;
+					if(empty($_GET)){
+						foreach($records as $record){
+							$i++;
+							echo '<a href="?record=' .$i. '">' . $record['INSTNM'] . '</a>';
+							echo'</p>';
+						}
+					}
+			
+			html_Link_table::printTable($records, 'record');
+		}
+	}
+
+		
 	
-	// close of the function 
-  
-  
-  }
-  
-  	//$newfile2 = new filehandling();
 	
-	$newfile->readfile_csv("hd2013.csv",TRUE);
-	//$newfile2->readfile_csv("hd2013_1.csv",TRUE);
 	
-  	// Create a new object
-$newobj = new MyOtherClass;
-	
-	// Output the object as a string
-echo $newobj->newMethod();
-  	
-	
- }
- */
+$csv = 'hd2013.csv';
+$file = File_handling::openFile($csv);
+
+$file_csv = new readcsv();
+$records = $file_csv->readfile_csv($file, TRUE);
+
+new html_Link_table($records);
 
 ?>
