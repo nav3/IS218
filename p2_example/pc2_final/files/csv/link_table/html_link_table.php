@@ -1,32 +1,16 @@
 <?php	 
+
+/*
+	Nikhil Virparia
+	IS218
+	Assignment 2
+*/
+
+
 namespace files\csv\link_table;
 	
-	 // Make class for link and table
+		  // Make class for link and table
 	  class html_link_table {
-	  
-	  	  // get the links and table 
-	public function print_table_links($records) 
-	{
-	if (empty($_GET)){
-			
-			$i = -1;
-			foreach($records as $record){
-				$i++;
-			// Link Statistic could be osl81, or web (both works)
-			echo (html_link_table::link("http://web.njit.edu/~nav3/IS218/pc1/index.php?record=" . $i , $record['INSTNM']));
-			echo '</p>';
-		}
-	}
-
-	  
-	  // Print out the table record inside the link
-	  $record = $records[$_GET['record']];
-	  
-	  echo (html_link_table::table($record));
-
-	
-	// close of the function 
-	}
 	  
 		// Function for Link
 		public static function link($href, $a) {
@@ -46,7 +30,7 @@ namespace files\csv\link_table;
 			{
 			$html .= "<tr>";
 				
-			$html .= "<th> $key  </th> <td> &nbsp;&nbsp;&nbsp;$value </td>";
+			$html .= "<th> $key </th> <td> $value </td>";
 			$html .= "</tr>";
 		}
 		
