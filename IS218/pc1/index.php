@@ -42,7 +42,7 @@ class filehandling
 	  
 
 	  // get the links and table 
-	public function print_table_links($records) 
+	public function print_table_links($records, $map) 
 	{
 	if (empty($_GET)){
 			
@@ -58,7 +58,7 @@ class filehandling
 	  
 	  // Print out the table record inside the link
 	  $record = $records[$_GET['record']];
-	  
+	  $record = array_combine($map, $record);
 	  echo (html_link_table::table($record));
 
 	
@@ -86,7 +86,7 @@ class filehandling
 			{
 			$html .= "<tr>";
 				
-			$html .= "<th> $key  </th> <td> &nbsp;&nbsp;&nbsp;$value </td>";
+			$html .= "<th> $key </th> <td> $value </td>";
 			$html .= "</tr>";
 		}
 		
@@ -98,20 +98,20 @@ class filehandling
 		}
 	  
 	  }
-	  
 	$newfile = filehandling::readfile_csv("hd2013.csv",TRUE);
-	filehandling::print_table_links($newfile);
 	
+		
 	// read second file
 	$newfile2 = filehandling::readfile_csv("hd2013_1.csv",TRUE);
-	
+
 	// passing the second file using static method
 	$new_map = map_new_file::create_map($newfile2);
+	
+	filehandling::print_table_links($newfile,$new_map);
+
 
 		//Array combine in map
-					foreach($array23 as $new_map2) {
-					$new_file[$i] = array_combine($new_map, $newfile[$i]);	
-				}
+
 				
 	// create map
 	class map_new_file{
