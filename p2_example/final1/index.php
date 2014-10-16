@@ -14,12 +14,12 @@
 	$csv2 = 'csv/hd2013_1.csv';
 
 	// manage files
-	$file = kp\manageFile::uploadFile($csv);
-	$file2 = kp\manageFile::uploadFile($csv2);
+	$file = kp\filemanger::uploadFile($csv);
+	$file2 = kp\filemanger::uploadFile($csv2);
 
 	//FileHandling object that passes the file stores into array
-	$handle = new kp\fileHandling();
-	$handle2 = new kp\fileHandling();
+	$handle = new kp\handlefile();
+	$handle2 = new kp\handlefile();
 
 	$records = $handle->headings($file, TRUE);
 	$headings = $handle->headings($file2, TRUE);
@@ -30,8 +30,6 @@
 	}
 	/* Print links in table vertically */
 	new \classes\Html\printLinks($records, $headings);
-	\classes\Html\htmlFunctions::printTable($records, $headings, 'vertical');
+	\classes\Html\htmlFunctions::printTable($records, $headings);
 	
 ?>
-
-
