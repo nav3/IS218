@@ -10,8 +10,6 @@
 				$className = substr($className, $lastNsPos + 1);
 				$fileName .= str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
 			}
-			//Leave commented to allow underscores in filenames.cd 
-			//$fileName .= str_replace('_', DIRECTORY_SEPARATOR, $className) . '.php';
 
 			$fileName .= $className . '.php';
 			require $fileName;
