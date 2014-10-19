@@ -1,5 +1,5 @@
 <?php
-
+// Autoloading files
 	class Autoloader{
 		public static function loader($className){
 			$className = ltrim($className, '\\');
@@ -16,5 +16,5 @@
 		}
 	}
 
-
+	spl_autoload_register('Autoloader::loader');
 ?>

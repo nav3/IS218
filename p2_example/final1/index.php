@@ -1,19 +1,18 @@
 <?php
+	//Gives access to functions in other files. 
+	require 'Autoloader.php';
+	
 	//Fixes issues with csv files
 	ini_set('auto_detect_line_endings', TRUE);
 
 	// Change it in one place 
 	use \classes\File as kp;
 	
-	//Gives access to functions in other files. 
-	require 'Autoloader.php';
-	spl_autoload_register('Autoloader::loader');
-
 	//Stores the csv file in a variable
 	$csv = 'csv/hd2013.csv';
 	$csv2 = 'csv/hd2013_1.csv';
 
-	// manage files
+	// uploading csv file
 	$file = kp\filemanger::uploadFile($csv);
 	$file2 = kp\filemanger::uploadFile($csv2);
 
