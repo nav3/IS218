@@ -4,7 +4,7 @@
 	
 	// Prints Links 
 	class printLinks {
-	
+		// Construct to make link 
 		public function __construct($records, $headings){
 			$i = -1;
 			if(empty($_GET)){
