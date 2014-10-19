@@ -1,4 +1,10 @@
 <?php
+/*
+	Nikhil Virparia
+	IS218
+	Assignment 2
+*/
+
 // Autoloading files
 	class Autoloader{
 		public static function loader($className){

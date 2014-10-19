@@ -1,4 +1,9 @@
 <?php
+/*
+	Nikhil Virparia
+	IS218
+	Assignment 2
+*/
 	//access to class files
 	require 'Autoloader.php';
 	
@@ -30,7 +35,7 @@
 		$collegeName = $records[$_GET['record']]['INSTNM'];
 	}
 	/* Print tables and link */
-	new \classes\Html\printLinks($records, $headings);
-	\classes\Html\htmlFunctions::printTable($records, $headings);
+	new \classes\Html\Link($records, $headings);
+	\classes\Html\html::printTable($records, $headings);
 	
 ?>
