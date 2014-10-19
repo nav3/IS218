@@ -2,15 +2,16 @@
 	
 	namespace classes\File;
 
+	// Filemanger class
 	class filemanger {
 		
-		//Function for uploading a file for reading.	
+		// Uploading a file for reading.	
 		public static function uploadFile($file){
 			$handle = fopen($file, "r");
 			return $handle;
 		}
 		
-		//Function for closing the file once it is done being used. 
+		//Closing the file
 		public static function closeFile($handle){
 			fclose($handle);
 		}

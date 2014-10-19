@@ -3,7 +3,7 @@
 	namespace classes\File;
 	
 	class handlefile {
-		
+			// reading through the file, and combining headings and row
 		public function headings($handle, $hasColumnheadings){
 			
 			while(($row = fgetcsv($handle, ",")) !== FALSE){
