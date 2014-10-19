@@ -5,13 +5,13 @@
 	// Html functions print table
 	class htmlFunctions {
 		
-		//Function for printing a table by passing in an array, and passing in one url variable. 
+		//Printing table by passing table and array
 		public static function printtable($records,$headings){
 			if(isset($_GET['record'])){
-				$table = '<div id="Table"><table border="1">';
+				$table = '<div id="Table"><table>';
 				$i = 0;
 				foreach($records[$_GET['record']] as $key => $value){
-					$table .= '<tr><th>' . $headings[$i]['varTitle'] . '</th>';
+					$table .= '<tr><th align="left">' . $headings[$i]['varTitle'] . '</th>';
 					$table .= '<td>' . $value . '</td></tr>';
 					$i++;
 				}
@@ -25,13 +25,10 @@
 			echo '<a href="?'.$urlVar.'=' .$increment. '">' . $title . '</a>';
 			echo'</p>';
 		}
-
+		// Print college titles
 		public static function printTitle($collegeName){
 			if(empty($_GET)){
-				echo '<h1 id="title">List of Colleges</h1>';
-			}
-			else{
-				echo '<h1 id="title">'. $collegeName . ' Info'. '</h1>';
+				echo '<h1>'. $collegeName . ' Info'. '</h1>';
 			}
 		}
 
