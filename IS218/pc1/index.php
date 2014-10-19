@@ -81,12 +81,12 @@ class filehandling
 		public static function table($record) {
 	
 			// Make the table
-			$html = "<table border=1>";
+			$html = "<table>";
 			foreach($record as $key => $value) 
 			{
 			$html .= "<tr>";
 				
-			$html .= "<th> $key </th> <td> $value </td>";
+			$html .= "<th align='left'> $key </th> <td> $value </td>";
 			$html .= "</tr>";
 		}
 		
