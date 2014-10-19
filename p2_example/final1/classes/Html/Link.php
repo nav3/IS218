@@ -10,6 +10,7 @@
 			if(empty($_GET)){
 				foreach($records as $record){
 					$i++;
+					// call the html class
 					\classes\Html\html::makeLink('record',$i, $record['INSTNM']);
 				}
 			}

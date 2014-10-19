@@ -8,6 +8,7 @@
 		//Printing table by passing table and array
 		public static function printtable($records,$headings){
 			if(isset($_GET['record'])){
+				// create the table here
 				$table = '<div id="Table"><table>';
 				$i = 0;
 				foreach($records[$_GET['record']] as $key => $value){
@@ -16,6 +17,7 @@
 					$i++;
 				}
 				$table .= '</table></div>';
+				// echo out the created table
 				echo $table;
 			}
 		}
