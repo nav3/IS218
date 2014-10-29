@@ -4,8 +4,7 @@
 	class htmltools
 	{
 		public static function prints(Array $record) {
-			$x = '<h1>' . $record[0]['user']['name'] . ' Tweets <img src="' . $record[0]['user']['profile_image_url'] . '"> </h1>';
-			//$x .= '<img src="' . $record[0]['user']['profile_image_url'] . '"> ';
+			$x = '<h1> <img src="' . $record[0]['user']['profile_image_url'] . '"> ' . $record[0]['user']['name'] . ' Tweets </h1>';
 			$x .= '<h3>' . $record[0]['user']['created_at'] . ' Time and Date of Tweet</h3>';
 			       
 			$x .= '<h3>' . $record[0]['user']['followers_count'] . ' Followers</h3>';
