@@ -1,9 +1,5 @@
 <?php
 
-/* Nikhil Virparia 
-	Challenge 3
-*/
-
 /**
  * Twitter-API-PHP : Simple PHP wrapper for the v1.1 API
  * 
@@ -15,7 +11,7 @@
  * @license  MIT License
  * @link     http://github.com/j7mbo/twitter-api-php
  */
- namespace classs;
+   namespace classs;
 class api
 {
     private $oauth_access_token;

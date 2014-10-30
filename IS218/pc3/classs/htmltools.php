@@ -1,49 +1,39 @@
 <?php
-/* Nikhil Virparia 
-	Challenge 3
-*/
-	namespace classs;
 
-	class htmltools
-	{
-		// Printing timeline
-		public static function prints(Array $record) {
-			// print out the image, plus user timeline
-			$x = '<table border="1" cellpadding="10"><tr><td><h1> <img src="' . $record[0]['user']['profile_image_url'] . '"> ' . $record[0]['user']['name'] . ' Tweets</td></tr> </h1>';
-			$x .= '<tr><td><h3>' . $record[0]['user']['created_at'] . ' Time and Date of Tweet </h3>'; 
-			$x .= '<h3>' . $record[0]['user']['screen_name'] . ' Screen name</h3>';			
-			$x .= '<h3>' . $record[0]['user']['followers_count'] . ' Followers</h3>';
-			$x .= '<h3>' . $record[0]['user']['friends_count'] . ' Friends</h3>';
-			$x .= '<h3>' . $record[0]['user']['listed_count'] . ' Listed </td></tr></h3>';
-			
-			// Loop the text
-			foreach($record as $records) {
-				$x .= '<table border="1" cellpadding="10"><tr><td><p>' . $records['text'] . '</p></td></tr></table>';
-			}
+namespace classs;
+	class htmltools{
 
-			return $x;
+		public static $timeline_labels = ['Time and Date of Tweet','Tweet','Tweeted By','Screen name','Followers','Friends'];	
+		
+		//Printing Timeline
+		public static function prTimeline($getfield, $string){
+			$x = '<h1> <img src="' . $string[0]['user']['profile_image_url'] . '"> ' . $string[0]['user']['name'] . ' Tweets</td></tr> </h1>';
+
+				echo '<table><tr>';
+				
+				$i = 0;
+				foreach(self::$timeline_labels as $label){					
+					echo '<th>' . self::$timeline_labels[$i] . '</th>';
+					$i++;
+				}
+					foreach($string as $items){					
+					$tbl .= '<tr>';
+					$tbl .= '<td>' . $items['created_at'] . '</td>';
+					$tbl .= '<td>' . $items['text'] . '</td>';
+					$tbl .= '<td>' . $items['user']['name'] . '</td>';
+					$tbl .= '<td>' . $items['user']['screen_name'] . '</td>';
+					$tbl .= '<td>' . $items['user']['followers_count'] . '</td>';
+					$tbl .= '<td>' . $items['user']['friends_count'] . '</td>';
+					$tbl .= '</tr>';
+				}			
+					$tbl .= '</table>';
+					echo $tbl;
+							
+	
 		}
-		
-				// Printing timeline
-		public static function prints1(Array $record) {
-			// print out the image, plus user timeline
-			$x = '<table border="1" cellpadding="10"><tr><td><h1> <img src="' . $record[0]['user']['profile_image_url'] . '"> ' . $record[0]['user']['name'] . ' Tweets</td></tr> </h1>';
-			$x .= '<tr><td><h3>' . $record[0]['user']['created_at'] . ' Time and Date of Tweet </h3>'; 
-			$x .= '<h3>' . $record[0]['user']['friends_count'] . ' Friend counts</h3>';			
-			$x .= '<h3>' . $record[0]['user']['followers_count'] . ' Followers</h3>';
-			$x .= '<h3>' . $record[0]['user']['friends_count'] . ' Friends</h3>';
-			$x .= '<h3>' . $record[0]['user']['listed_count'] . ' Listed </td></tr></h3>';
-			
-			// Loop the text
-			foreach($record as $records) {
-				$x .= '<table border="1" cellpadding="10"><tr><td><p>' . $records['text'] . '</p></td></tr></table>';
-			}
+	
 
-			return $x;
 		}
-		
-/**/
-		
 
-	}
+
 ?>
