@@ -1,4 +1,8 @@
 <?php
+/* Nikhil Virparia 
+	Challenge 3
+*/
+
 require 'autoloader.php';
 
 
@@ -16,11 +20,16 @@ $requestMethod = "GET";
 	if (isset($_GET['user']))  {
 		$user = $_GET['user'];
 	}
-
-$field = "?screen_name=NikhilVirparia";
+	else if (isset($_GET['count'])) {
+			$user = $_GET['count'];
+	}else {$count = 20;
+			}
+$field = "?screen_name=";
 $twitter = new classs\api($settings);
-$string = json_decode($twitter->setGetfield($field)->buildOauth($url, $requestMethod)->performRequest(),$assoc = TRUE);
 
+$string = json_decode($twitter->setGetfield($field)->buildOauth($url, $requestMethod)->performRequest(),$assoc = TRUE);
+	echo "<h1>Followers</h1>";
+	$follower = classs\htmltools::follower($string);
 
 // User Timeline 
 $url = "https://api.twitter.com/1.1/statuses/user_timeline.json";
@@ -34,11 +43,11 @@ $string = json_decode($twitter->setGetfield($field)->buildOauth($url, $requestMe
 	
 	echo "<h1>Timeline</h1>";
 	$timeline = classs\htmltools::timeline($field, $string);
-	echo "<h1>Followers</h1>";
-	$follower = classs\htmltools::follower($string);
+
 	
+	//home timeline	
 echo "<h1>Home Timeline</h1>";
-	//home timeline
+
 $url = "https://api.twitter.com/1.1/statuses/home_timeline.json";
 $requestMethod = "GET";
 	if (isset($_GET['user']))  {
