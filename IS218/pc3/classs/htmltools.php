@@ -43,7 +43,7 @@ namespace classs;
 					echo '<th>' . self::$fblabels[$i] . '</th>';
 					$i++;
 				}
-					foreach($string as $list1){					
+					foreach($string['users'] as $list1){					
 					$tbl .= '<tr>';
 					$tbl .= '<td>' . $list1['name'] .'</td>';
 					$tbl .= '<td>' . $list1['screen_name'] . '</td>';
