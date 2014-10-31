@@ -37,10 +37,11 @@ $requestMethod = "GET";
 
 $field = "?screen_name=NikhilVirparia";
 $twitter = new classs\api($settings);
-
 $string = json_decode($twitter->setGetfield($field)->buildOauth($url, $requestMethod)->performRequest(),$assoc = TRUE);
+
 	echo "<h1>Followers</h1>";
 	$follower = classs\htmltools::follower($string);
+	
 	
 	//home timeline	
 echo "<h1>Home Timeline</h1>";
