@@ -32,12 +32,27 @@ $field = "?screen_name=NikhilVirparia";
 $twitter = new classs\api($settings);
 $string = json_decode($twitter->setGetfield($field)->buildOauth($url, $requestMethod)->performRequest(),$assoc = TRUE);
 	
-
+//home timeline
+$url = "https://api.twitter.com/1.1/statuses/home_timeline.json";
+$requestMethod = "GET";
+	if (isset($_GET['user']))  {
+		$user = $_GET['user'];
+	}
+	else if (isset($_GET['count'])) {
+			$user = $_GET['count'];
+	}else {$count = 20;
+			}
+$getfield = "?screen_name=$user";
+$twitter = new classs\api($settings);
+$string = json_decode($twitter->setGetfield($getfield)->buildOauth($url, $requestMethod)->performRequest(),$assoc = TRUE);
+	
 	$timeline = classs\htmltools::timeline($field, $string);
 	$follower = classs\htmltools::follower($string);
+	$home = classs\htmltools::home($getfield, $string);
 		
 
 echo $timeline;
 echo $follower; 
+echo $home; 
 										  
 ?>										  
