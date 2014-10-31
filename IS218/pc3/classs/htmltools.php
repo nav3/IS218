@@ -2,8 +2,7 @@
 
 namespace classs;
 	class htmltools{
-		//public static $Hometimeline_labels = ['Time and Date of Tweet','Tweet','Tweeted By','Screen name','Followers','Friends'];
-		public static $post_labels = ['Posted On','Post','Screen Name'];
+		public static $homelabels = ['Time and Date of Tweet','Tweet','Tweeted By','Screen name','Followers','Friends'];
 		public static $timelables = ['Time and Date of Tweet','Tweet','Tweeted By','Screen name','Followers','Friends'];	
 		public static $fblabels = ['Name','Screen name'];
 		
@@ -18,14 +17,14 @@ namespace classs;
 					echo '<th>' . self::$timelables[$i] . '</th>';
 					$i++;
 				}
-					foreach($string as $items){					
+					foreach($string as $list1){					
 					$tbl .= '<tr>';
-					$tbl .= '<td>' . $items['created_at'] . '</td>';
-					$tbl .= '<td>' . $items['text'] . '</td>';
-					$tbl .= '<td>' . $items['user']['name'] . '</td>';
-					$tbl .= '<td>' . $items['user']['screen_name'] . '</td>';
-					$tbl .= '<td>' . $items['user']['followers_count'] . '</td>';
-					$tbl .= '<td>' . $items['user']['friends_count'] . '</td>';
+					$tbl .= '<td>' . $list1['created_at'] . '</td>';
+					$tbl .= '<td>' . $list1['text'] . '</td>';
+					$tbl .= '<td>' . $list1['user']['name'] . '</td>';
+					$tbl .= '<td>' . $list1['user']['screen_name'] . '</td>';
+					$tbl .= '<td>' . $list1['user']['followers_count'] . '</td>';
+					$tbl .= '<td>' . $list1['user']['friends_count'] . '</td>';
 					$tbl .= '</tr>';
 				}			
 					$tbl .= '</table>';
@@ -41,17 +40,39 @@ namespace classs;
 					echo '<th>' . self::$fblabels[$i] . '</th>';
 					$i++;
 				}
-					foreach($string[0] as $items){					
+					foreach($string[0] as $list1){					
 					$tbl .= '<tr>';
-					$tbl .= '<td>' . $items['name'] .'</td>';
-					$tbl .= '<td>' . $items['screen_name'] . '</td>';
+					$tbl .= '<td>' . $list1['name'] .'</td>';
+					$tbl .= '<td>' . $list1['screen_name'] . '</td>';
 					$tbl .= '</tr>';
 				}			
 					$tbl .= '</table>';
 					echo $tbl; 
 				
 			}
-		
+			//Hometimeline
+				public static function home($getfield, $string){
+
+				echo '<table><tr>';
+				$i = 0;
+				foreach(self::$homelabels as $label){					
+					echo '<th>' . self::$homelabels[$i] . '</th>';
+					$i++;
+				}
+					foreach($string as $list1){					
+					$tbl .= '<tr>';
+					$tbl .= '<td>' . $list1['created_at'] . '</td>';
+					$tbl .= '<td>' . $list1['text'] . '</td>';
+					$tbl .= '<td>' . $list1['user']['name'] . '</td>';
+					$tbl .= '<td>' . $list1['user']['screen_name'] . '</td>';
+					$tbl .= '<td>' . $list1['user']['followers_count'] . '</td>';
+					$tbl .= '<td>' . $list1['user']['friends_count'] . '</td>';
+					$tbl .= '</tr>';
+				}			
+					$tbl .= '</table>';
+					echo $tbl; 
+	
+		}
 		
 	
 
