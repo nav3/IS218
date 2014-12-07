@@ -25,10 +25,12 @@ class program {
      
      public $content;
 
+	// Construct page header, and links
      public function __construct() {
         $this->pageheader();
         $this->pagemenu();
      }
+	 // Page menu links
      private function pagemenu() {
                 $this->content .= '
 				
@@ -44,14 +46,8 @@ class program {
 <br/>';
 
      }
-     private function pagefooter() {
 
-       $this->content .= '
-<h4>Page footer</h4>
-	 
-</body>
-</html>';
-     }
+		// Make page header
      private function pageheader() {
         $this->content .= '<!doctype html>
 		
@@ -80,18 +76,30 @@ class program {
 
      }
 
-     public function __destruct() {
-       $this->pagefooter();
-	echo $this->content;
-     }
-
-		// every single page 
+		// every single page (content)
      public function get() {
        $this->content .=  '
 <!-- Hello 
 <h2>hello</h2>-->
        ';
      }
+	 
+	 // Page footer
+	private function pagefooter() {
+   $this->content .= '
+	   <!-- Page footer-->
+<h4>Page footer</h4>
+	 
+</body>
+</html>';
+     }
+	 
+	 // destruct pagefooter, and content to the page
+	public function __destruct() {
+    $this->pagefooter();
+	echo $this->content;
+   }
+	 
 
      public function post() {
        print_r($_POST);
@@ -116,8 +124,8 @@ class program {
    public function __construct() {
       parent::__construct();
       $this->content .= '
-	  <!-- Question1 page content goes here -->
-	  <p>Question1 I will go</p>';
+	  <!-- Question 1 page content goes here -->
+	  <p>Question 1 I will go</p>';
    }
 
   }
@@ -128,8 +136,8 @@ class program {
       public function __construct() {
 		  parent::__construct();
 		  $this->content .= '
-		  <!-- Question2 page content goes here -->
-		  <p>Question2 I will go</p>';
+		  <!-- Question 2 page content goes here -->
+		  <p>Question 2 I will go</p>';
    }
 
    }
@@ -140,8 +148,8 @@ class program {
       public function __construct() {
 		  parent::__construct();
 		  $this->content .= '
-		  <!-- Question3 page content goes here -->
-		  <p>Question3 I will go</p>';
+		  <!-- Question 3 page content goes here -->
+		  <p>Question 3 I will go</p>';
    }
 
    }
@@ -152,8 +160,8 @@ class program {
       public function __construct() {
 		  parent::__construct();
 		  $this->content .= '
-		  <!-- Question4 page content goes here -->
-		  <p>Question4 I will go</p>';
+		  <!-- Question 4 page content goes here -->
+		  <p>Question 4 I will go</p>';
    }
 
    }
@@ -164,8 +172,8 @@ class program {
 	  public function __construct() {
 		parent::__construct();
 		$this->content .= '
-		<!-- Question5 page content goes here -->
-		<p>Question5 I will go</p>';
+		<!-- Question 5 page content goes here -->
+		<p>Question 5 I will go</p>';
    }
 
    }
