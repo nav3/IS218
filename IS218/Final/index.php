@@ -1,5 +1,8 @@
 <?php
-  
+
+/* Nikhil Virparia
+
+*/  
   $obj = new program;
  
 class program {
@@ -79,6 +82,7 @@ class program {
 		// every single page (content)
      public function get() {
        $this->content .=  '
+	   
 <!-- Hello 
 <h2>hello</h2>-->
        ';
@@ -87,7 +91,7 @@ class program {
 	 // Page footer
 	private function pagefooter() {
    $this->content .= '
-	   <!-- Page footer-->
+<!-- Page footer-->
 <h4>Page footer</h4>
 	 
 </body>
@@ -112,7 +116,8 @@ class program {
    public function __construct() {
       parent::__construct();
       $this->content .= '
-	  <!-- Index page content goes here -->
+	  
+<!-- Index page content goes here -->
 
 	  ';
 	}
@@ -124,8 +129,9 @@ class program {
    public function __construct() {
       parent::__construct();
       $this->content .= '
-	  <!-- Question 1 page content goes here -->
-	  <p>Question 1 I will go</p>';
+	  
+<!-- Question 1 page content goes here -->
+<p>Question 1 </p>';
    }
 
   }
@@ -136,8 +142,9 @@ class program {
       public function __construct() {
 		  parent::__construct();
 		  $this->content .= '
-		  <!-- Question 2 page content goes here -->
-		  <p>Question 2 I will go</p>';
+		  
+<!-- Question 2 page content goes here -->
+<p>Question 2 </p>';
    }
 
    }
@@ -148,8 +155,9 @@ class program {
       public function __construct() {
 		  parent::__construct();
 		  $this->content .= '
-		  <!-- Question 3 page content goes here -->
-		  <p>Question 3 I will go</p>';
+		  
+<!-- Question 3 page content goes here -->
+<p>Question 3 </p>';
    }
 
    }
@@ -160,8 +168,9 @@ class program {
       public function __construct() {
 		  parent::__construct();
 		  $this->content .= '
-		  <!-- Question 4 page content goes here -->
-		  <p>Question 4 I will go</p>';
+		  
+<!-- Question 4 page content goes here -->
+<p>Question 4 </p>';
    }
 
    }
@@ -172,8 +181,9 @@ class program {
 	  public function __construct() {
 		parent::__construct();
 		$this->content .= '
-		<!-- Question 5 page content goes here -->
-		<p>Question 5 I will go</p>';
+		
+<!-- Question 5 page content goes here -->
+<p>Question 5 </p>';
    }
 
    }
