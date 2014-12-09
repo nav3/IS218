@@ -40,6 +40,40 @@ class csv{
 		}
 	}
 	
+		public function writeToDatabase($records){
+		$host = "sql1.njit.edu";
+		$dbname = "";
+		$table = "";
+		try{
+		$DBH = new PDO("mysql:host=$host;dbname=$dbname","","");
+		$DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		
+		//Let's write to the database
+		foreach($records as $record){
+			$insert = null;
+			foreach($record as $key => $value){
+				$insert[] = $value;
+			}
+			
+			print_r($insert);
+			
+			$STH = $DBH->prepare("insert into $table values(?,?,?)");
+			$STH->execute($insert);	
+		}
+		
+		
+		$DBH = null;
+		
+		}
+		catch(PDOException $e){
+			echo $e->getMessage();
+		}
+		
+	
+			
+	}
+}
+
 	
 
 
