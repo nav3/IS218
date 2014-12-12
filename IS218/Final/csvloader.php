@@ -41,8 +41,10 @@ class csv{
 	}
 	
 		public function writeToDatabase($records){
-		$host = "sql1.njit.edu";
+		$host = "http://localhost/phpmyadmin/";
 		$dbname = "";
+		$user = "root";
+		$pass = "cadcszxcadc12";
 		$table = "";
 		try{
 		$DBH = new PDO("mysql:host=$host;dbname=$dbname","","");
