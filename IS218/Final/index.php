@@ -1,7 +1,9 @@
 <?php
-/* Nikhil Virparia
-
-*/  
+/*
+	Nikhil Virparia
+	IS218
+	Final Project
+*/ 
 	use \pages\page as page;
    require_once'autoloader.php';
 

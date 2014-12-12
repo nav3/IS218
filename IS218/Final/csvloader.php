@@ -1,6 +1,8 @@
 <?php 
-
-/* Nikhil Virparia
+/*
+	Nikhil Virparia
+	IS218
+	Final Project
 */
 
 ini_set('display_errors', 'On');

@@ -1,4 +1,10 @@
 <?php
+/*
+	Nikhil Virparia
+	IS218
+	Final Project
+*/
+
  	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
 	use \pages\page as page;
