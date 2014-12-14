@@ -95,8 +95,8 @@ class program {
 	 // Page footer
 	private function pagefooter() {
    $this->content .= '
-<!-- Page footer-->
-<h4>Page footer</h4>
+<!-- Page footer
+<h4>Page footer</h4>-->
 	 
 </body>
 </html>';
