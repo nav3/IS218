@@ -43,13 +43,15 @@ class csv{
 	}
 	
 		public function writeToDatabase($records){
-		$host = "http://localhost/phpmyadmin/";
-		$dbname = "";
+		$host = "localhost";
+		$dbname = "colleges";
+		$table = "2011";
 		$user = "root";
 		$pass = "cadcszxcadc12";
 		$table = "";
 		try{
-		$DBH = new PDO("mysql:host=$host;dbname=$dbname","","");
+		// If not then write localhost, and colleges
+		$DBH = new PDO('mysql:host=$host;dbname=$dbname',$user,$pass);
 		$DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 		//Let's write to the database
@@ -72,14 +74,9 @@ class csv{
 		catch(PDOException $e){
 			echo $e->getMessage();
 		}
-		
-	
 			
-	}
+	} // End of function
 }
-
-	
-
 
 
 ?>
