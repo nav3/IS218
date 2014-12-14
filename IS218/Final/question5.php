@@ -17,15 +17,15 @@
 		parent::__construct();
 		$this->content .= '
 		
-<!-- Question 5 page content goes here -->
-<p>Question 5 </p>';
+		<!-- Question 5 page content goes here -->
+		<p>Question 5 </p>';
 
 
-// Template for printing questions
+		// Template for printing questions
 		function get(){
 				
-				$host = "http://localhost/phpmyadmin/";
-				$dbname = "root";
+				$host = "localhost";
+				$dbname = "colleges";
 				$user = "root";
 				$pass = "cadcszxcadc12";
 				try{

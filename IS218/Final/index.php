@@ -13,8 +13,8 @@
       parent::__construct();
       $this->content .= '
 	  
-<!-- Index page content goes here -->
-Hello
+<!-- Index page content goes here for testing-->
+Home page
 	  ';
 	}
    }
