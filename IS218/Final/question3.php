@@ -5,8 +5,7 @@
 	Final Project
 */
 
- 	error_reporting(E_ALL);
-	ini_set('display_errors', 1);
+
 	use \pages\page as page;
    require_once'autoloader.php';
    
@@ -22,7 +21,8 @@
 		$DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 		$DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
-		$STH = $DBH->query("SELECT DISTINCT schools.Name, finances.N2011 FROM schools INNER JOIN finances ON finances.UID = schools.UID ORDER BY finances.N2011 DESC ");
+		$STH = $DBH->query("SELECT DISTINCT schools.Name, finances.N2011 
+		FROM schools INNER JOIN finances ON finances.UID = schools.UID ORDER BY finances.N2011 DESC ");
 		
 		$this->content .= "<h1>Colleges with the highest net assets in 2011</h1><br>"; 
 		
@@ -30,7 +30,7 @@
 		$this->content .= "
 			<tr>
 				<th>College Name</th>
-				<th>Total net assests</th>
+				<th>Total net assets</th>
 			</tr>
 		";
 		

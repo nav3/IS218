@@ -5,8 +5,6 @@
 	Final Project
 */
 
- 	error_reporting(E_ALL);
-	ini_set('display_errors', 1);
 	use \pages\page as page;
    require_once'autoloader.php';
    
@@ -22,9 +20,10 @@
 		$DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 		$DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	
-		$STH = $DBH->query("SELECT DISTINCT schools.Name,enrolled.E2010,enrolled.E2011,((enrolled.E2011-enrolled.E2010)*100/enrolled.E2010) AS PIncrease FROM schools INNER JOIN enrolled ON enrolled.UID = schools.UID ORDER BY PIncrease DESC ");
+		$STH = $DBH->query("SELECT DISTINCT schools.Name,enrolled.E2010,enrolled.E2011,((enrolled.E2011-enrolled.E2010)*100/enrolled.E2010) AS PIncrease 
+		FROM schools INNER JOIN enrolled ON enrolled.UID = schools.UID ORDER BY PIncrease DESC ");
 		
-		$this->content .= "<h1>Colleges with the largest percentage increase in enrollment between the years of 2011 and 2010</h1><br>"; 
+		$this->content .= "<h1>Colleges with the largest percentage increase in enrolment between the years of 2011 and 2010</h1><br>"; 
 		
 		$this->content .= "<table border = 2>";
 		$this->content .= "

@@ -5,8 +5,6 @@
 	Final Project
 */
 
- 	error_reporting(E_ALL);
-	ini_set('display_errors', 1);
    require_once'autoloader.php';
    	use \pages\page as page;
    
@@ -21,16 +19,16 @@
 			$DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 			$DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			
-			$STH = $DBH->query("SELECT DISTINCT schools.Name, E2011 FROM enrolled INNER JOIN schools ON enrolled.UID = schools.UID ORDER BY enrolled.E2011 DESC ");
-		//$STH = $DBH->query("SELECT * from schools limit10");
+			$STH = $DBH->query("SELECT DISTINCT schools.Name, E2011 
+			FROM enrolled INNER JOIN schools ON enrolled.UID = schools.UID ORDER BY enrolled.E2011 DESC ");
 				
-			$this->content .= "<h1>Highest College Enrollment in 2011</h1><br>";
+			$this->content .= "<h1>Highest College Enrolment in 2011</h1><br>";
 			
 			$this->content .= "<table border = 2>";
 			$this->content .= "
 				<tr>
 					<th>College Name</th>
-					<th>Enrollment</th>
+					<th>Enrolment</th>
 				</tr>
 			";
 			

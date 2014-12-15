@@ -5,8 +5,6 @@
 	Final Project
 */
 
-ini_set('display_errors', 'On');
-error_reporting(E_ALL | E_STRICT);
 $csv = new CSVLoader();
 $data = $csv->openFile('finance.csv');
 $csv->writeToDatabase($data);

@@ -5,8 +5,6 @@
 	Final Project
 */
 
- 	error_reporting(E_ALL);
-	ini_set('display_errors', 1);
 	use \pages\page as page;
    require_once'autoloader.php';
    
@@ -22,8 +20,8 @@
 		$DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 		$DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				
-				
-		$STH = $DBH->query("SELECT DISTINCT schools.Name, finances.N2011, enrolled.E2011, round(finances.N2011/enrolled.E2011,0) AS AssetPerS FROM schools INNER JOIN finances ON finances.UID = schools.UID INNER JOIN enrolled ON schools.UID = enrolled.UID ORDER BY AssetPerS DESC ");
+		$STH = $DBH->query("SELECT DISTINCT schools.Name, finances.N2011, enrolled.E2011, round(finances.N2011/enrolled.E2011,0) AS AssetPerS 
+		FROM schools INNER JOIN finances ON finances.UID = schools.UID INNER JOIN enrolled ON schools.UID = enrolled.UID ORDER BY AssetPerS DESC ");
 		
 		$this->content .= "<h1>Colleges with the highest net assets per student in 2011</h1><br>"; 
 		
@@ -32,7 +30,7 @@
 		$this->content .= "
 			<tr>
 				<th>College Name</th>
-				<th>Total net assests per student</th>
+				<th>Total net assets per student</th>
 			</tr>
 		";
 		
