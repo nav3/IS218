@@ -13,55 +13,45 @@
 // questions #4
       class question4 extends page {
    
-      public function __construct() {
-		  parent::__construct();
-		  $this->content .= '
-		  
-<!-- Question 4 page content goes here -->
-<p>Question 4 </p>';
-
 // Template for printing questions
-function get(){
-		
-		$host = "localhost";
-		$dbname = "colleges";
-		$user = "root";
-		$pass = "cadcszxcadc12";
+	function get(){
+		$host = "sql.njit.edu";
+		$dbname = "nav3";
+		$user ="nav3";
+		$pass = "YD9Aowq9";
 		try{
 		$DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 		$DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				
+		$STH = $DBH->query("SELECT schools.Name, finances.N2011, enrolled.E2011, round(finances.N2011/enrolled.E2011,0) AS AssetPerS FROM schools INNER JOIN finances ON finances.UID = schools.UID INNER JOIN enrolled ON schools.UID = enrolled.UID ORDER BY AssetPerS DESC limit 10 ");
 		
-		$STH = $DBH->query("SELECT college.Name, EN2011 FROM enrollment INNER JOIN college ON enrollment.UID = college.UID ORDER BY enrollment.EN2011 DESC ");
+		$this->content .= "<h1>Colleges with the highest net assets per student in 2011</h1><br>"; 
 		
-		$this->content .= "<h1>Highest College Enrollment in 2011</h1><br>";
 		
 		$this->content .= "<table border = 2>";
 		$this->content .= "
 			<tr>
 				<th>College Name</th>
-				<th>Enrollment</th>
+				<th>Total net assests per student</th>
 			</tr>
 		";
 		
 		while($rows = $STH->fetch()){
 			$this->content .= "<tr>";
 			$this->content .= "<td>" . $rows['Name'] . "</td>";
-			$this->content .= "<td>" . $rows['EN2011'] . "</td>";
+			$this->content .= "<td>" . $rows['AssetPerS'] . "</td>";
 			$this->content .= "</tr>";
 		}
 		
 		$this->content .= "</table>";
 		
-		$DBH = null;
+				$DBH = null;
+				}
+				catch(PDOException $e){
+					echo $e->getMessage();
+				}
+				
+			}
 		}
-		catch(PDOException $e){
-			echo $e->getMessage();
-		}
-		
-	}
-			
-   }
-
-   }
 
 ?>

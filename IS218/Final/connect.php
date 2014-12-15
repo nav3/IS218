@@ -4,10 +4,12 @@
 	IS218
 	Final Project
 */
+
 	try {
-		$dbh = new PDO('mysql:host=localhost; dbname=college_data; charset=utf8', 'root', 'cadcszxcadc12');
+		$dbh = new PDO('mysql:host=sql.njit.edu; dbname=nav3;charset=utf8', 'nav3', 'YD9Aowq9');
 	}catch(Exception $e) {
 		print "Error: " . $e->getMessage() . "<br>";
 		die();
-	}	
+	}
+	
 ?>

@@ -12,57 +12,46 @@
 // questions #2
    class question2 extends page {
    
-      public function __construct() {
-		  parent::__construct();
-		  $this->content .= '
-		  
-<!-- Question 2 page content goes here -->
-<p>Question 2 </p>';
-
 // Template for printing questions
-function get(){
-		
-		$host = "localhost";
-		$dbname = "colleges";
-		$user = "root";
-		$pass = "cadcszxcadc12";
-		try{
-		$DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-		$DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		
-		$STH = $DBH->query("SELECT college.Name, EN2011 FROM enrollment INNER JOIN college ON enrollment.UID = college.UID ORDER BY enrollment.EN2011 DESC ");
-		
-		$this->content .= "<h1>Highest College Enrollment in 2011</h1><br>";
-		
-		$this->content .= "<table border = 2>";
-		$this->content .= "
-			<tr>
-				<th>College Name</th>
-				<th>Enrollment</th>
-			</tr>
-		";
-		
-		while($rows = $STH->fetch()){
-			$this->content .= "<tr>";
-			$this->content .= "<td>" . $rows['Name'] . "</td>";
-			$this->content .= "<td>" . $rows['EN2011'] . "</td>";
-			$this->content .= "</tr>";
-		}
-		
-		$this->content .= "</table>";
-		
-		$DBH = null;
-		}
-		catch(PDOException $e){
-			echo $e->getMessage();
-		}
-		
-	}
-			
-   }
+		function get(){
+				$host = "sql.njit.edu";
+				$dbname = "nav3";
+				$user ="nav3";
+				$pass = "YD9Aowq9";
+				try{
+				$DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+				$DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				
+			$STH = $DBH->query("SELECT schools.Name, finances.L2011 FROM schools INNER JOIN finances ON finances.UID = schools.UID ORDER BY finances.L2011 DESC limit 10 ");
 
-   }
-
-
+				//$STH = $DBH->query("SELECT * from schools limit10");
+				
+			$this->content .= "<h1>Colleges with the highest total liabilities in 2011</h1><br>";
+		
+				$this->content .= "<table border = 2>";
+				$this->content .= "
+					<tr>
+						<th>College Name</th>
+						<th>Total Liablities</th>
+					</tr>
+				";
+				
+				while($rows = $STH->fetch()){
+					$this->content .= "<tr>";
+					$this->content .= "<td>" . $rows['Name'] . "</td>";
+					$this->content .= "<td>" . $rows['L2011'] . "</td>";
+					$this->content .= "</tr>";
+				}
+				
+				$this->content .= "</table>";
+				
+				$DBH = null;
+				}
+				catch(PDOException $e){
+					echo $e->getMessage();
+				}
+				
+			}
+		}
 
 ?>
