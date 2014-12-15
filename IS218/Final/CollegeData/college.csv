@@ -1,4 +1,4 @@
-UNITID,INSTNM,STABBR
+UID,Name,State
 100636,Community College of the Air Force,AL
 100654,Alabama A & M University,AL
 100663,University of Alabama at Birmingham,AL
@@ -4833,7 +4833,7 @@ UNITID,INSTNM,STABBR
 368036,Alexandria School of Scientific Therapeutics,IN
 368160,Hannibal Career and Technical Center,MO
 368230,The Hair Design School-Bloomfield,NJ
-368364,Southwest Technology Center,OK
+368364,Southwest Technology Center,OKUniversity of Wisconsin-Madison
 368407,Western Area Career and Technology Center,PA
 368443,Daymar Institute-Clarksville,TN
 368452,Nossi College of Art,TN
