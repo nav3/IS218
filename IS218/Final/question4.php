@@ -12,8 +12,7 @@
    
 // questions #4
       class question4 extends page {
-   
-// Template for printing questions
+  
 	function get(){
 		$host = "sql.njit.edu";
 		$dbname = "nav3";
@@ -23,7 +22,8 @@
 		$DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 		$DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				
-		$STH = $DBH->query("SELECT schools.Name, finances.N2011, enrolled.E2011, round(finances.N2011/enrolled.E2011,0) AS AssetPerS FROM schools INNER JOIN finances ON finances.UID = schools.UID INNER JOIN enrolled ON schools.UID = enrolled.UID ORDER BY AssetPerS DESC limit 10 ");
+				
+		$STH = $DBH->query("SELECT DISTINCT schools.Name, finances.N2011, enrolled.E2011, round(finances.N2011/enrolled.E2011,0) AS AssetPerS FROM schools INNER JOIN finances ON finances.UID = schools.UID INNER JOIN enrolled ON schools.UID = enrolled.UID ORDER BY AssetPerS DESC ");
 		
 		$this->content .= "<h1>Colleges with the highest net assets per student in 2011</h1><br>"; 
 		

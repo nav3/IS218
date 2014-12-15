@@ -21,12 +21,10 @@
 		try{
 		$DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 		$DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				
 		
-		$STH = $DBH->query("SELECT schools.Name, finances.N2011 FROM schools INNER JOIN finances ON finances.UID = schools.UID ORDER BY finances.N2011 DESC limit 10 ");
+		$STH = $DBH->query("SELECT DISTINCT schools.Name, finances.N2011 FROM schools INNER JOIN finances ON finances.UID = schools.UID ORDER BY finances.N2011 DESC ");
 		
 		$this->content .= "<h1>Colleges with the highest net assets in 2011</h1><br>"; 
-		
 		
 		$this->content .= "<table border = 2>";
 		$this->content .= "

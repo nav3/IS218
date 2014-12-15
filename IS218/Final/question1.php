@@ -12,7 +12,6 @@
    
    	// questions #1
    class question1 extends page {
-// Template for printing questions
 	function get(){
 			$host = "sql.njit.edu";
 			$dbname = "nav3";
@@ -22,7 +21,7 @@
 			$DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
 			$DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			
-			$STH = $DBH->query("SELECT schools.Name, E2011 FROM enrolled INNER JOIN schools ON enrolled.UID = schools.UID ORDER BY enrolled.E2011 DESC limit 10 ");
+			$STH = $DBH->query("SELECT DISTINCT schools.Name, E2011 FROM enrolled INNER JOIN schools ON enrolled.UID = schools.UID ORDER BY enrolled.E2011 DESC ");
 		//$STH = $DBH->query("SELECT * from schools limit10");
 				
 			$this->content .= "<h1>Highest College Enrollment in 2011</h1><br>";
@@ -52,6 +51,6 @@
 			
 		}
 			
-		}
+	}
 
 ?>
