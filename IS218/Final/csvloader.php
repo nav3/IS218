@@ -8,10 +8,10 @@
 ini_set('display_errors', 'On');
 error_reporting(E_ALL | E_STRICT);
 $csv = new CSVLoader();
-$data = $csv->openFile('CollegeData/effy.csv');
+$data = $csv->openFile('effy_year.csv');
 $csv->writeToDatabase($data);
 
-class csv{
+class csvloader{
 	
 	public function openFile($f){
 		$firstLine = true;
@@ -43,15 +43,14 @@ class csv{
 	}
 	
 		public function writeToDatabase($records){
-		$host = "localhost";
-		$dbname = "colleges";
-		$table = "2011";
-		$user = "root";
-		$pass = "cadcszxcadc12";
-		$table = "";
+		//$host = "localhost";
+		//$dbname = "schools";
+		$table = "enrolled";
+		$user = "nav3";
+		$pass = "YD9Aowq9";
 		try{
 		// If not then write localhost, and colleges
-		$DBH = new PDO('mysql:host=$host;dbname=$dbname',$user,$pass);
+		$DBH = new PDO('mysql:host=sql1.njit.edu;dbname=nav3',$user,$pass);
 		$DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 		//Let's write to the database
