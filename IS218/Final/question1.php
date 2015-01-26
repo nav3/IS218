@@ -22,7 +22,7 @@
 			$STH = $DBH->query("SELECT DISTINCT schools.Name, E2011 
 			FROM enrolled INNER JOIN schools ON enrolled.UID = schools.UID ORDER BY enrolled.E2011 DESC ");
 				
-			$this->content .= "<h1>Highest College Enrolment in 2011</h1><br>";
+			$this->content .= "<h1>Highest College Enrolment</h1><br>";
 			
 			$this->content .= "<table border = 2>";
 			$this->content .= "

@@ -23,7 +23,7 @@
 		$STH = $DBH->query("SELECT DISTINCT schools.Name, finances.N2011, enrolled.E2011, round(finances.N2011/enrolled.E2011,0) AS AssetPerS 
 		FROM schools INNER JOIN finances ON finances.UID = schools.UID INNER JOIN enrolled ON schools.UID = enrolled.UID ORDER BY AssetPerS DESC ");
 		
-		$this->content .= "<h1>Colleges with the highest net assets per student in 2011</h1><br>"; 
+		$this->content .= "<h1>Colleges with the highest net assets per student</h1><br>"; 
 		
 		
 		$this->content .= "<table border = 2>";
