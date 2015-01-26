@@ -12,9 +12,14 @@
    public function __construct() {
       parent::__construct();
       $this->content .= '
-	  
+
+
 <!-- Index page content goes here for testing-->
+<br/>
+<br/>
 Home page
+
+
 	  ';
 	}
    }
