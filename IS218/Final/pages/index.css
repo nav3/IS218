@@ -1,0 +1,234 @@
+/*
+ Nikhil Virparia
+	
+*/
+
+/* Configure body */
+body {  background-color: black;
+background-image: url(http://s1.postimg.org/wx9ebemzz/njit.jpg);
+      /* color: #666666; 
+	background-image: url(images.jpg); */
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	font-family: Arial, Helvetica, sans-serif; 
+ }
+
+
+/* Configure wrapper */
+#wrapper{ margin-left: auto;
+	  margin-right: auto;
+	  width: 85%;
+	  background-color: #90C7E3;
+	  -webkit-box-shadow: 5px 5px 5px #000033;
+	  -moz-box-shadow: 5px 5px 5px #000033;
+	  box-shadow: 5px 5px 5px #000033; }
+		  
+
+/* Configure h1 */
+h1 { background-color: blue;
+     color: #FFFFFF; 
+	
+     margin-bottom: 0; /*
+     background-image: url(sunset.JPG);
+     background-repeat: no-repeat; 
+     background-position: right;*/
+     padding: 10px; 
+     font-family: Georgia, "Times New Roman", serif; 
+	 float: center;}
+
+
+/* Configure content */
+#content { padding: 1px 20px 20px 30px;
+	   background-color: #FFFFFF;
+	   margin-left: 200px;	
+	   	 min-height: 600px;
+
+   }
+	   
+	      #selecter {
+display:inline-block;
+	   
+	   }
+
+	   #selecter1 {
+	   display:inline-block;
+	   margin-left:800px;
+	   
+	   }
+
+#content img, #content video, #content embed { float: right; padding-right: 20px; border: none; }
+
+#content ul { list-style-position: inside; }
+
+/* contact id */
+#contact { font-size: 90%; }
+
+
+/* Configure nav */
+#nav { padding: 20px 5px 5px 20px; 
+       font-weight: bold; 
+       float: left; 
+       width: 140px; }
+
+#nav ul { list-style-type: none;
+	  margin: 0;
+	  padding-left: 0;
+	  font-size: 1.2em; }
+
+#nav a { text-decoration: none; }
+
+#nav a:link { color: #000033; }
+
+#nav a:visited { color: #344873; }
+
+#nav a:hover { color: #FFFFFF; }
+
+/*
+ul li a {
+	background: #333;
+	color: #fff;
+	padding:10px;
+	text-decoration: none;
+
+}*/
+
+bocy, p {
+	margin: 0px;
+	padding: 0px;
+}
+.container {
+	width: autopx;
+	height: autopx;
+	margin: 0 auto;
+	padding: 0px;
+}
+
+.question_container {
+	margin: 0 auto;
+	width: auto;
+	height: auto;
+
+	text-align: left;
+	cursor: pointer;
+	-webkit-border-bottom-right-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-moz-border-radius-bottomright: 15px;
+	-moz-border-radius-bottomleft: 15px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+.question_container p {
+	color: #fff;
+	text-shadow: -1px 2px 3px #000;
+}
+
+.questions_extended {
+	width: auto;
+	height: auto;
+	display: none;
+	background-color: #ccc;
+	margin: 0 auto;
+	
+}
+
+
+
+#Question_bank {
+
+color: navy;
+}
+/* Configure footer */
+#footer { font-size: 75%; 
+	  font-style: italic; 
+	  font-family: Georgia, "Times New Roman", Times, serif; 
+	  clear: both; }
+
+
+/* Configure h2 */		  
+h2 { color: MAROON; 
+     font-family: Georgia, "Times New Roman", serif; 
+     text-shadow: 1px 1px 1px #ccc; }
+
+h4 {
+	color: red;
+}
+
+/* button */
+
+.button-link {
+    padding: 10px 15px;
+    background: #4479BA;
+    color: #FFF;
+}
+
+
+
+dt { color: #000033; }
+
+.boldness { color: #000033; 
+	  font-weight: bold; }
+
+/* Configure h3 */
+h3 { color: #000033; 
+     font-family: Georgia, "Times New Roman", serif; }
+
+/* tables */
+table { border: 1px solid #3399cc; width: 100%; border-spacing: 0; }
+td, th { padding: 10px; border: 1px solid #3399cc; }
+td { text-align: left;  }
+.text { text-align: left; }
+tr:nth-of-type(2n+0) { background-color: #F5FAFC }
+
+
+
+/* paragraph */
+.p { color: blue; 
+	font-family: Verdana, Helvetica, sans-serif; }
+
+
+/* Styles to configure the form 
+label { float: left;
+	width: 100px; 
+	text-align: right; 
+	padding-right: 10px;
+	margin-top: 10px; }
+input, textarea { margin-top: 10px; }
+#mySubmit { margin-left: 110px;
+           padding-bottom: 10px; }
+form div { clear: left; }
+
+*/
+#align {
+	float: right;
+	
+}
+.style1 {
+	font-weight: bold;
+	font-size: medium;
+	color: #436498;
+}
+.style5 {
+	font-size: small;
+	width: 741px;
+	margin-top: 0em;
+	margin-bottom: 0em;
+}
+.style6 {
+	font-size: x-small;
+	width: 741px;
+	margin-top: 0em;
+	margin-bottom: 0em;
+}
+.style7 {
+	text-align: center;
+}
+
+a {
+    outline: none;
+}
+
+* {
+    outline: none;
+}
