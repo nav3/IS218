@@ -8,7 +8,7 @@
 	use \pages\page as page;
    require_once'autoloader.php';
    
-  // questions #5
+  // questions #5 includes the get
 	 class question5 extends page {
       
 	function get(){
