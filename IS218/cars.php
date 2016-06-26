@@ -1,5 +1,5 @@
 <?php
-		// First car
+	// First car
   $car_orders[0]['model'] = 'taurus';
   $car_orders[0]['engine'] = 'V6';
   $car_orders[0]['color'] = 'blue';
@@ -14,43 +14,6 @@
   $car_orders[2]['engine'] = 'V6';
   $car_orders[2]['color'] = 'blue';
   
-  
-	// Do this first
-	//if($_GET != NULL) {
-	if(empty($_GET)) {
-	//if($_GET != NULL) {
-	  /**/
-  foreach($car_orders as $car_order) {
-  $i++;
-  $car_order_num = $i - 1;
-	//foreach($car_order as $key => $value) {
-		//echo $key . ': ' . $value . "<br>";
-		//print_r($car_orders);
- // }
-  echo '<a href=' . '"http://web.njit.edu/~nav3/IS218/cars.php?car_order=' . $car_order_num . '"' . '>Car Order ' . $i . ' </a>';
-  echo '</p>';
-  
-  }
-  
-  }
-  
-    $car_order = $car_orders[$_GET['car_order']];
-  
-	foreach($car_order as $key => $value) {
-		echo $key . ': ' . $value . "<br>\n";
-		//print_r($car_orders);
-		//print_r($_GET);
-	}
-
-  
-  
-  //print_r ($car_orders[$_GET['car_order']]);
-  
-  //$car_order = $car_orders[$_GET['car_order']]);
-  
- // print_r($car_order);
-  
-  /*
   foreach($car_orders as $car_order) {
 	foreach($car_order as $key => $value) {
 		echo $key . ': ' . $value . "<br>";
@@ -59,22 +22,12 @@
   echo '<br/>';
   
   }
-  */
-  
-  
-  //print_r($car_order);
-  
-  
- // $car = new $car_order['model'];
-  
-  
-  
-  //$car->setColor('blue');
- // print_r($car);
-  
- // $car->model = 'ford';
-  //print_r($car);
-  
+ 
+
+dsdf
+ // New Code here 
+
+
   //echo $car->make;
   abstract class car {
 	//public $make = 'ford';
@@ -122,3 +75,5 @@
 
 
 ?>
+
+
